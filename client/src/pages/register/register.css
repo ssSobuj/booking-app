@@ -1,0 +1,116 @@
+.register-container {
+  background-color: #f3f1f1;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-top: 50px;
+  width: 100%;
+}
+.register-section {
+  max-width: 650px;
+  min-height: 460px;
+  padding: 10px 0;
+  margin: auto;
+  border-radius: 5px;
+  border: solid 1px var(--primary-color);
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.31);
+  background: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.signin-section h1 {
+  font-size: 32px;
+}
+.register-section p {
+  margin-bottom: 20px;
+  color: var(--secondary-black);
+}
+.register-section p a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-size: 15px;
+}
+.register-section form {
+  margin: 0 30px;
+}
+.gender {
+  margin: 10px 15px 25px 15px;
+}
+.register-section form label#icon {
+  margin: 0;
+  border-radius: 5px 0 0 5px;
+}
+
+.register-section form input[type="text"],
+.register-section form input[type="email"],
+.register-section form input[type="number"],
+.register-section form input[type="password"] {
+  width: calc(100% - 57px);
+  height: 36px;
+  margin: 13px 0 0 -5px;
+  padding: 19px 15px;
+  border-radius: 0 5px 5px 0;
+  border: solid 1px var(--primary-color);
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.09);
+  background: var(--primary-color);
+  font-size: 15px;
+}
+.register-section form input[type="text"]:focus,
+.register-section form input[type="number"]:focus,
+.register-section form input[type="email"]:focus,
+.register-section form input[type="password"]:focus {
+  outline: 0.5px solid var(--secondary-color);
+}
+.register-section form input[type="email"],
+.register-section form input[type="text"],
+.register-section form input[type="number"],
+.register-section form input[type="password"] {
+  margin-bottom: 5px;
+}
+.register-section form #icon {
+  display: inline-block;
+  padding: 9.3px 15px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.09);
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  text-align: center;
+}
+.register-section form .btn-block {
+  margin-top: 10px;
+  text-align: center;
+}
+.register-section form button {
+  width: 100%;
+  padding: 10px 0;
+  margin: 10px auto;
+  border-radius: 5px;
+  border: none;
+  background: var(--secondary-color);
+  cursor: pointer;
+}
+.register-section form button a {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.register-section form button:hover {
+  background: var(--secondary-color);
+}
+
+.register-section .errorMassgae {
+  color: red;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.d-flex{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.d-flex div{
+  width: 50%;
+}

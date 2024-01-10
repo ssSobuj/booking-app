@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  --primary-color: #fff;
+  --secondary-color: #01629c;
+  --black-color: #000;
+  --orange-color: #fa9836;
+  --border-color: gray;
+}
+
+.main {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  margin: 0 auto;
+  width: 1366px;
+}

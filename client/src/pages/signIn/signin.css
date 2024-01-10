@@ -1,0 +1,137 @@
+.signin-container {
+  margin: 0 auto;
+  padding-top: 50px;
+  width: 100%;
+  background-color: #f3f1f1;
+  min-height: 100vh;
+}
+.signin-section {
+  max-width: 500px;
+  min-height: 460px;
+  padding: 10px 0;
+  margin: auto;
+  border-radius: 5px;
+  border: solid 1px var(--primary-color);
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.31);
+  background: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.signin-section p {
+  margin-bottom: 20px;
+  color: var(--secondary-black);
+}
+.signin-section p a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-size: 15px;
+}
+.signin-section form {
+  margin: 0 30px;
+  width: 438px;
+}
+.gender {
+  margin: 10px 15px 25px 15px;
+}
+
+.signin-section form label#icon {
+  margin: 0;
+  border-radius: 5px 0 0 5px;
+}
+.signin-section form label.radio {
+  position: relative;
+  display: inline-block;
+  padding-top: 4px;
+  margin-right: 20px;
+  text-indent: 30px;
+  overflow: visible;
+  cursor: pointer;
+}
+.signin-section form label.radio:before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--secondary-color);
+}
+.signin-section form label.radio:after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 4px;
+  top: 8px;
+  left: 4px;
+  border: 3px solid var(--primary-color);
+  border-top: none;
+  border-right: none;
+  transform: rotate(-45deg);
+  opacity: 0;
+}
+.signin-section form input[type="radio"]:checked + label:after {
+  opacity: 1;
+}
+.signin-section form input[type="email"],
+.signin-section form input[type="password"] {
+  width: calc(100% - 57px);
+  height: 36px;
+  margin: 13px 0 0 -5px;
+  padding: 19px 15px;
+  border-radius: 0 5px 5px 0;
+  border: solid 1px var(--primary-color);
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.09);
+  background: var(--primary-color);
+  font-size: 15px;
+}
+.signin-section form input[type="email"]:focus {
+  outline: 0.5px solid var(--secondary-color);
+}
+.signin-section form input[type="password"]:focus {
+  outline: 0.5px solid var(--secondary-color);
+}
+.signin-section form input[type="email"],
+.signin-section form input[type="password"] {
+  margin-bottom: 10px;
+}
+.signin-section form #icon {
+  display: inline-block;
+  padding: 9.3px 15px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.09);
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  text-align: center;
+}
+.signin-section form .btn-block {
+  margin-top: 10px;
+  text-align: center;
+}
+.signin-section form button {
+  width: 100%;
+  padding: 10px 0;
+  margin: 10px auto;
+  border-radius: 5px;
+  border: none;
+  background: var(--secondary-color);
+  cursor: pointer;
+}
+.signin-section form button a {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.signin-section form button:hover {
+  background: var(--secondary-color);
+}
+
+.signin-section .errorMassgae {
+  color: red;
+  margin: 0;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,39 @@
+.nav-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.nav-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 80px;
+  align-items: center;
+}
+.nav-section .nav-icon a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-size: 25px;
+}
+.nav-section ul {
+  display: flex;
+  gap: 20px;
+}
+.nav-section ul li {
+  list-style: none;
+}
+.nav-section ul li a {
+  padding: 10px 50px;
+  text-decoration: none;
+
+  border-radius: 3px;
+  outline: none;
+}
+
+.nav-section ul .signin a {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+.nav-section ul .register a {
+  color: var(--primary-color);
+  background-color: var(--orange-color);
+}

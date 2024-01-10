@@ -1,0 +1,28 @@
+.offer-container {
+  width: 100%;
+  margin-top: 50px;
+  padding: 20px 80px;
+}
+
+.card-1-part-2 img {
+  width: 200px;
+}
+.offer-section {
+  display: flex;
+  flex-direction: column;
+}
+.offer-card {
+  display: flex;
+}
+.card-1 {
+  display: flex;
+  width: 50%;
+}
+
+.card-1 .card-1-part-1 {
+  width: 50%;
+}
+
+.card-2 {
+  background-image: url("https://r-xx.bstatic.com/xdata/images/xphoto/714x300/293799350.jpeg?k=8a6f4e24c37096fbdcd3c3d30c9f3dcea15ce35751448466decf791918012a64&o=");
+}
