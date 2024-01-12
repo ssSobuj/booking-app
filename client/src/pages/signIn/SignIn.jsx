@@ -5,8 +5,10 @@ import "./signin.css";
 import SocialLogin from "../../component/SocialLogin/SocialLogin";
 import { FaEnvelope, FaKey } from "react-icons/fa";
 import { useForm } from "react-hook-form";
+import { useAuth } from "./../../context/AuthProbider";
 
 export default function SignIn() {
+  const {logOut, logIn} = useAuth();
   const {
     register,
     handleSubmit,
@@ -15,7 +17,8 @@ export default function SignIn() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const { email, password } = data;
+    logIn(email, password);
   };
 
   return (
@@ -59,10 +62,11 @@ export default function SignIn() {
           )}
           <div className="btn-block">
             <button type="submit">
-              <Link>Submit</Link>
+              <Link>Sign In</Link>
             </button>
           </div>
         </form>
+        <button onClick={logOut}>logout</button>       
         <SocialLogin />
       </div>
     </div>

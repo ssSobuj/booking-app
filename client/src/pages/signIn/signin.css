@@ -106,10 +106,12 @@
   color: var(--primary-color);
   text-align: center;
 }
+.btn-block,
 .signin-section form .btn-block {
   margin-top: 10px;
   text-align: center;
 }
+.btn-block button,
 .signin-section form button {
   width: 100%;
   padding: 10px 0;
@@ -119,13 +121,14 @@
   background: var(--secondary-color);
   cursor: pointer;
 }
+.btn-block button a,
 .signin-section form button a {
   font-size: 14px;
   font-weight: 600;
   color: var(--primary-color);
   text-decoration: none;
 }
-
+.btn-block button:hover,
 .signin-section form button:hover {
   background: var(--secondary-color);
 }

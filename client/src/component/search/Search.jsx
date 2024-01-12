@@ -20,7 +20,6 @@ export default function Search() {
   const [openDate, setOpenDate] = useState(false);
   const [openOption, setOpenOption] = useState(false);
   const [searchInput, setSearchInput] = useState("");
-  console.log(searchInput);
 
   const handleDateChange = (item) => {
     setDate([item.selection]);

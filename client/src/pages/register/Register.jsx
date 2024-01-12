@@ -210,7 +210,7 @@ export default function Register() {
                 transition: "all 0.5s ease-in-out",
               }}
             >
-              Submit
+              <Link to={"/singin"}>Submit</Link>
             </Button>
           </div>
         </form>
