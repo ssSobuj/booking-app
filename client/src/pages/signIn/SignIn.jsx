@@ -6,19 +6,22 @@ import SocialLogin from "../../component/SocialLogin/SocialLogin";
 import { FaEnvelope, FaKey } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { useAuth } from "./../../context/AuthProbider";
+import { useNavigate } from "react-router-dom";
 
 export default function SignIn() {
-  const {logOut, logIn} = useAuth();
+  const { logIn } = useAuth();
   const {
     register,
     handleSubmit,
     formState: { errors },
     getValues,
   } = useForm();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     const { email, password } = data;
     logIn(email, password);
+    navigate("/");
   };
 
   return (
@@ -32,41 +35,42 @@ export default function SignIn() {
           </Link>
         </p>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <label id="icon" htmlFor="email">
-            <FaEnvelope />
-          </label>
-          <input
-            {...register("email", {
-              required: "This field is required",
-              pattern: {
-                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                message: "Invalid email address",
-              },
-            })}
-            type="email"
-            placeholder="Email"
-          />
+          <div>
+            <label id="icon" htmlFor="email">
+              <FaEnvelope />
+            </label>
+            <input
+              {...register("email", {
+                required: "This field is required",
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "Invalid email address",
+                },
+              })}
+              type="email"
+              placeholder="Email"
+            />
+          </div>
           {errors.email && (
             <p className="errorMassgae">{errors.email.message}</p>
           )}
-          <label id="icon" htmlFor="name">
-            <FaKey />
-          </label>
-          <input
-            {...register("password", { required: "This field is required" })}
-            type="password"
-            placeholder="Password"
-          />
+          <div>
+            <label id="icon" htmlFor="name">
+              <FaKey />
+            </label>
+            <input
+              {...register("password", { required: "This field is required" })}
+              type="password"
+              placeholder="Password"
+            />
+          </div>
           {errors.password && (
             <p className="errorMassgae">{errors.password.message}</p>
           )}
           <div className="btn-block">
-            <button type="submit">
-              <Link>Sign In</Link>
-            </button>
+            <button type="submit">Sign In</button>
           </div>
         </form>
-        <button onClick={logOut}>logout</button>       
         <SocialLogin />
       </div>
     </div>

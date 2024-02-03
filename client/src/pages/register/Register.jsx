@@ -1,46 +1,43 @@
 /* eslint-disable no-undef */
 import { FaEnvelope, FaFlag, FaKey, FaUser } from "react-icons/fa";
 import "./register.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../../component/button/Button";
 import { ImKey2 } from "react-icons/im";
 import { FaCity } from "react-icons/fa6";
 import { BiSolidContact } from "react-icons/bi";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useAuth } from "../../context/AuthProbider";
 
 export default function Register() {
   const {
     register,
-    // reset,
+    reset,
     handleSubmit,
     formState: { errors },
     getValues,
     setError,
   } = useForm();
+  const { regester } = useAuth();
+  const navigate = useNavigate();
+
   const onSubmit = async (data) => {
     const username = data.name.split(" ").join("_").toLowerCase() + Date.now();
     const findUserByEmail = await axios.get(
       `http://localhost:8800/api/users?email=${data.email}`
     );
 
-    if (findUserByEmail.data.length > 0) {
+    if (findUserByEmail.data.length !== 0) {
       setError("email", {
         type: "manual",
         message: "Email already exists",
       });
-    } else {
-      try {
-        await axios.post("http://localhost:8800/api/auth/register", {
-          ...data,
-          username,
-        });
-        console.log("User registered successfully");
-      } catch (error) {
-        console.log(error.message);
-      }
+      return;
     }
-    // reset();
+    await regester(data, username);
+    navigate("/singin");
+    reset();
   };
   return (
     <div className="register-container">
@@ -53,37 +50,41 @@ export default function Register() {
           </Link>
         </p>
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
-          <label id="icon" htmlFor="name">
-            <FaUser />
-          </label>
-          <input
-            {...register("name", {
-              required: "This field is required",
-              pattern: {
-                value: /^[a-zA-Z]+(?:[ \t]+[a-zA-Z]+)*$/,
-                message: "Invalid Name",
-              },
-            })}
-            type="text"
-            placeholder="Name"
-          />
+          <div>
+            <label id="icon" htmlFor="name">
+              <FaUser />
+            </label>
+            <input
+              {...register("name", {
+                required: "This field is required",
+                pattern: {
+                  value: /^[a-zA-Z]+(?:[ \t]+[a-zA-Z]+)*$/,
+                  message: "Invalid Name",
+                },
+              })}
+              type="text"
+              placeholder="Name"
+            />
+          </div>
           {errors.name && <p className="errorMassgae">{errors.name.message}</p>}
 
-          <label id="icon" htmlFor="email">
-            <FaEnvelope />
-          </label>
-          <input
-            {...register("email", {
-              required: "This field is required",
-              pattern: {
-                value:
-                  /^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)*$/,
-                message: "Invalid email address",
-              },
-            })}
-            type="email"
-            placeholder="Email"
-          />
+          <div>
+            <label id="icon" htmlFor="email">
+              <FaEnvelope />
+            </label>
+            <input
+              {...register("email", {
+                required: "This field is required",
+                pattern: {
+                  value:
+                    /^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)*$/,
+                  message: "Invalid email address",
+                },
+              })}
+              type="email"
+              placeholder="Email"
+            />
+          </div>
           {errors.email && (
             <p className="errorMassgae">{errors.email.message}</p>
           )}
@@ -172,20 +173,22 @@ export default function Register() {
               )}
             </div>
           </div>
-          <label id="icon" htmlFor="number">
-            <BiSolidContact />
-          </label>
-          <input
-            {...register("phone", {
-              required: "This field is required",
-              pattern: {
-                value: /^(01[1-9][0-9]{8})$/,
-                message: "Enter a valid 11-digit phone starting with '01'.",
-              },
-            })}
-            type="number"
-            placeholder="Phone Number"
-          />
+          <div>
+            <label id="icon" htmlFor="number">
+              <BiSolidContact />
+            </label>
+            <input
+              {...register("phone", {
+                required: "This field is required",
+                pattern: {
+                  value: /^(01[1-9][0-9]{8})$/,
+                  message: "Enter a valid 11-digit phone starting with '01'.",
+                },
+              })}
+              type="number"
+              placeholder="Phone Number"
+            />
+          </div>
           {errors.phone && (
             <p className="errorMassgae">{errors.phone.message}</p>
           )}
@@ -210,7 +213,9 @@ export default function Register() {
                 transition: "all 0.5s ease-in-out",
               }}
             >
-              <Link to={"/singin"}>Submit</Link>
+              {/* <Link to={"/singin"}> */}
+              Submit
+              {/* </Link> */}
             </Button>
           </div>
         </form>

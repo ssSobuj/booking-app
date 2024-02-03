@@ -1,0 +1,151 @@
+.profile-page-content {
+  padding: 3rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  position: relative;
+}
+
+.profile-card {
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 30px;
+  overflow: hidden;
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.profile-user-profile {
+  border-radius: 5px 0 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 35%;
+}
+
+.profile-card-img {
+  flex-basis: 70%;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  gap: 10px;
+}
+.profile-card-img .icon {
+  font-size: 80px;
+}
+.profile-card-img .content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.profile-card-block {
+  flex-basis: 70%;
+  padding: 20px;
+}
+
+.profile-card-img {
+  font-weight: 600;
+}
+.profile-card-block {
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.profile-card-img p {
+  margin: 0;
+}
+.profile-card-block p {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.custom-section-title {
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+.profile-card-block hr {
+  margin-bottom: 15px;
+}
+
+.custom-user-info-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.custom-user-info {
+  flex: 0 0 48%;
+}
+
+.custom-info-label {
+  font-weight: 600;
+}
+
+.edit-btn {
+  width: 100%;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.edit-btn button {
+  width: 50%;
+  padding: 5px 0;
+  border: none;
+  border-radius: 5px;
+  border: 1px solid #551a8b;
+  transition: all 1s ease;
+  font-size: 15px;
+  color: #551a8b;
+  cursor: pointer;
+}
+.edit-btn button:hover {
+  scale: 1.02;
+}
+
+.custom-social-links {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 10px 0;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.custom-social-link {
+  display: inline-block;
+  font-size: 20px;
+  margin-right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.custom-social-link:hover {
+  scale: 1.1;
+}
+
+.profile-card-block h6 {
+  color: gray;
+}
+
+.modal-wrap {
+  /* height: 100%; */
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0px;
+  top: -30px;
+}

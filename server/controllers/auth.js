@@ -14,7 +14,9 @@ export const register = async (req, res, next) => {
     });
 
     await newUser.save();
-    res.status(200).send("User has been created.");
+    res
+      .status(200)
+      .send({ message: "User has been created.", details: newUser });
   } catch (err) {
     next(err);
   }
@@ -33,7 +35,8 @@ export const login = async (req, res, next) => {
 
     const token = jwt.sign(
       { id: user._id, isAdmin: user.isAdmin },
-      process.env.JWT
+      process.env.JWT,
+      { expiresIn: "12d" }
     );
 
     const { password, isAdmin, ...otherDetails } = user._doc;

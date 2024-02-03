@@ -4,6 +4,7 @@ import { useAuth } from "../../context/AuthProbider";
 
 export default function Navber() {
   const { authState, logOut } = useAuth();
+
   return (
     <nav className="nav-container">
       <div className="nav-section">
@@ -14,17 +15,22 @@ export default function Navber() {
           <li className="signin">
             <Link>List Your Property</Link>
           </li>
-          {!authState.user ? (
+          {!authState.currentUser ? (
             <li className="signin">
               <Link to={"/singin"}>Sign In</Link>
             </li>
           ) : (
-            <li onClick={logOut} className="signin">
-              <Link>Sing Out</Link>
+            <li className="signin" onClick={logOut}>
+              <Link to={"/"}>Sing Out</Link>
             </li>
           )}
-          <li className="register">
-            <Link to={"/register"}>Register</Link>
+          {!authState.currentUser && (
+            <li className="register">
+              <Link to={"/register"}>Register</Link>
+            </li>
+          )}
+          <li className="signin">
+            <Link to={`/profile/${authState?.currentUser?._id}`}>Profile</Link>
           </li>
         </ul>
       </div>

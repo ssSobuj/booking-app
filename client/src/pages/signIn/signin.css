@@ -120,6 +120,7 @@
   border: none;
   background: var(--secondary-color);
   cursor: pointer;
+  color: var(--primary-color);
 }
 .btn-block button a,
 .signin-section form button a {
